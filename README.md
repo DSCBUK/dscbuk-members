@@ -1,5 +1,9 @@
 # dscbuk-members
 
+## Deployed version: http://dscbuk.surge.sh
+
+## Link to Add New Member: http://bit.ly/dscbuk-join
+
 ## Project setup
 ```
 npm install
