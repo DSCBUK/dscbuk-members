@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <pre>
 #DSCBUK is a program for university students, designed to help them build their mobile and web development skills and to help them work towards employability.
 We’ll be organizing workshops, meetups, showcases, hackathons, and also expose students to opportunities available for them.
 Follow Us On:
@@ -10,5 +11,6 @@ LinkedIn: https://www.linkedin.com/in/dscbuk
 Slack: http://bit.ly/dscbuk-slack
 Members Project Form: http://bit.ly/dscbuk-projects
 Members Join Form: http://bit.ly/dscbuk-join
+    </pre>
   </div>
 </template>
