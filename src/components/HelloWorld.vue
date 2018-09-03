@@ -7,6 +7,7 @@
     <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
     <div v-for="member in members" :key="member.phone">
       Name: {{member.name}} |
+      Dept: {{member.regno.substring(7,10).toUpperCase()}} |
       Areas of interests: {{member.interests}} 
       <hr> <br>
     </div>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import url from './url.js'
+import secretURL from './url.js'
 
 export default {
   props: {
@@ -27,7 +28,7 @@ export default {
     }
   },
   mounted(){
-    let url = url
+    let url = secretURL
     fetch(url)
     .then((resp) => resp.json()) // Transform the data into json
     .then((data) => {
