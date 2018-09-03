@@ -4,11 +4,9 @@
     <p> We're working to make this site look better, you can checkout/contribute <a href="https://github.com/DSCBUK/dscbuk-members" target="_blank"> <b> here </b> </a> </p>
     <p> Is your details missing? Click <a href="http://bit.ly/dscbuk-join" target="_blank"> <b> here </b> </a> to add yours ;-) </p>
     <h3> View Our Members </h3> <br>
+    <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
     <div v-for="member in members" :key="member.phone">
       Name: {{member.name}} |
-      Email: {{member.email}} |
-      Phone: {{member.phone}} |
-      Reg No: {{member.regno}} |
       Areas of interests: {{member.interests}} 
       <hr> <br>
     </div>
@@ -16,6 +14,8 @@
 </template>
 
 <script>
+import url from './url.js'
+
 export default {
   props: {
     msg: String
@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted(){
-    let url = 'https://spreadsheets.google.com/feeds/list/141AYclwr44uNsXWVbmp96mjWjWlcZxtny0UkitmwYiw/1/public/full?alt=json'
+    let url = url
     fetch(url)
     .then((resp) => resp.json()) // Transform the data into json
     .then((data) => {
