@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import secretURL from './url.js'
+import secretURL from './secretURL.js'
 
 export default {
   props: {
