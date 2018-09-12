@@ -4,22 +4,28 @@
     <p> We're working to make this site look better, you can checkout/contribute <a href="https://github.com/DSCBUK/dscbuk-members" target="_blank"> <b> here </b> </a> </p>
     <p> Is your details missing? Click <a href="http://bit.ly/dscbuk-join" target="_blank"> <b> here </b> </a> to add yours ;-) </p>
     <button class="button is-info" @click="showMembers = true"> View Our Members </button> <br>
-    <b-loading :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="true"></b-loading>
-    <div v-for="member in members" :key="member.phone" v-if="showMembers && members.length > 0">
-      Name: {{member.name}} |
-      Dept: {{member.regno.substring(7,10).toUpperCase()}} |
-      Areas of interests: {{member.interests}}
-      <hr> <br>
-    </div>
+    <detect-network> 
+        <div slot="offline"> <pre> :-( You are offline => Our Members are only visible online.  </pre> </div>
+        <div slot="online" v-for="member in members" :key="member.phone" v-if="showMembers && members.length > 0">
+        Name: {{member.name}} |
+        Dept: {{member.regno.substring(7,10).toUpperCase()}} |
+        Areas of interests: {{member.interests}}
+        <hr> <br>
+        </div>
+    </detect-network>
 </div>
 </template>
 
 <script>
 import secretURL from "./secretURL.js";
+import detectNetwork from 'v-offline';
 
 export default {
     props: {
         msg: String
+    },
+    components: {
+      'detect-network': detectNetwork
     },
     data() {
         return {
